@@ -132,7 +132,7 @@ const Survey = () => {
                         handleRatingClick(currentQuestion.question, index + 1)
                         //console.log(currentQuestion)
                       }
-                    />
+                    >{index+1}</span>
                   ))}
                 </div>
               )}
