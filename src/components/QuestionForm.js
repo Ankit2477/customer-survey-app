@@ -10,6 +10,7 @@ function QuestionForm() {
     event.preventDefault();
     const url =
       "https://customer-survey-61eb2-default-rtdb.firebaseio.com/questions.json";
+
     const newQuestion = {
       question,
       maxRating,
@@ -39,46 +40,50 @@ function QuestionForm() {
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
-      <h2 className={classes.title}>Add New Question</h2>
-      <label className={classes.label}>
-        Question:
-        <input
-          className={classes.input}
-          type="text"
-          value={question}
-          onChange={(event) => setQuestion(event.target.value)}
-          required
-        />
-      </label>
-      <label className={classes.label}>
-        Maximum Rating:
-        <input
-          className={classes.input}
-          type="number"
-          min="1"
-          max="10"
-          value={maxRating}
-          onChange={(event) => setMaxRating(parseInt(event.target.value))}
-          required
-        />
-      </label>
-      <label className={classes.label}>
-        Type:
-        <select
-          className={classes.select}
-          value={type}
-          onChange={(event) => setType(event.target.value)}
-          required
-        >
-          <option value="rating">Rating</option>
-          <option value="text">Text</option>
-        </select>
-      </label>
-      <button className={classes.button} type="submit">
-        Save Question
-      </button>
-    </form>
+    <div className={classes.container}>
+      <div className={classes.card}>
+        <form className={classes.form} onSubmit={handleSubmit}>
+          <h2 className={classes.title}>Add New Question</h2>
+          <label className={classes.label}>
+            Question:
+            <input
+              className={classes.input}
+              type="text"
+              value={question}
+              onChange={(event) => setQuestion(event.target.value)}
+              required
+            />
+          </label>
+          <label className={classes.label}>
+            Maximum Rating:
+            <input
+              className={classes.input}
+              type="number"
+              min="1"
+              max="10"
+              value={maxRating}
+              onChange={(event) => setMaxRating(parseInt(event.target.value))}
+              required
+            />
+          </label>
+          <label className={classes.label}>
+            Type:
+            <select
+              className={classes.select}
+              value={type}
+              onChange={(event) => setType(event.target.value)}
+              required
+            >
+              <option value="rating">Rating</option>
+              <option value="text">Text</option>
+            </select>
+          </label>
+          <button className={classes.button} type="submit">
+            Save Question
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
